@@ -1,0 +1,6 @@
+modules:
+  trend_http:
+    prober: http
+    timeout: 5s
+    http:
+      preferred_ip_protocol: ip4
