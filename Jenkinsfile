@@ -77,7 +77,8 @@ pipeline {
                     arn=$(aws elbv2 describe-load-balancers --region "$AWS_REGION" \
                       --query "LoadBalancers[?DNSName=='$host'].LoadBalancerArn | [0]" \
                       --output text)
-                    test -n "$arn" && test "$arn" != None
+                    test -n "$arn"
+                    test "$arn" != None
                     echo "Application URL: http://$host:3000/"
                     echo "Load balancer ARN: $arn"
                 '''
