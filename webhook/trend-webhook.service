@@ -1,0 +1,12 @@
+[Unit]
+Description=Trend GitHub webhook relay
+After=network.target
+
+[Service]
+DynamicUser=yes
+EnvironmentFile=/etc/trend-webhook.env
+ExecStart=/usr/bin/node /opt/trend-webhook/relay.cjs
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
